@@ -34,7 +34,7 @@ class ColorTrackerGUI(QWidget):
         self.srv_torque_enable = rospy.ServiceProxy("torque_enable", TorqueEnable)                          # ROS Service used to torque the 'pan' and 'tilt' joints off
         self.srv_robot_info = rospy.ServiceProxy("get_robot_info", RobotInfo)                               # ROS Service used to get joint limit information
         self.pub_cmds = rospy.Publisher("commands/joint_group", JointGroupCommand, queue_size=10)           # ROS Publisher to publish commands to the 'pan' and 'tilt' joints
-        self.sub_img = rospy.Subscriber("lifecam/image_raw", Image, self.image_cb)                          # ROS Subscriber to get images from the 'usb_cam' node
+        self.sub_img = rospy.Subscriber("/yolov4_publisher/color/image", Image, self.image_cb) # ROS Subscriber to get images from the 'usb_cam' node
         self.sub_joint_states = rospy.Subscriber("joint_states", JointState, self.joint_state_cb)           # ROS Subscriber to get the current joint states of the turret
         self.name_map = {}                                                                                  # Dictionary used to update label, slider, textbox, and button states
         self.big_font = QFont("Helvetica", 14, QFont.Bold)                                                  # Large font for Header text

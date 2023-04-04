@@ -35,7 +35,7 @@ class ColorTracker(object):
         while (self.joint_states is None): pass                                                                         # Wait until the node gets the latest joint states
         self.joint_commands = JointGroupCommand("turret", list(self.joint_states.position))                             # Set initial joint commands to the current joint positions
         self.robot_info = self.srv_robot_info("group", "turret")                                                        # Call the RobotInfo Service
-        self.sub_img = rospy.Subscriber("lifecam/image_raw", Image, self.image_cb)                                      # ROS Subscriber to get images from the 'usb_cam' node
+        self.sub_img = rospy.Subscriber("/yolov4_publisher/color/image", Image, self.image_cb)                                      # ROS Subscriber to get images from the 'usb_cam' node
 
     ### @brief ROS Subscriber callback function to get updated joint states
     ### @param msg - updated JointState message
