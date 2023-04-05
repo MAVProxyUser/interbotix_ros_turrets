@@ -11,7 +11,7 @@ def main():
     # set the pan servo's max velocity about pi rad/s (equivelant to 131), and the max acceleration about 5.6 rad/s^2 (equivelant to 15)
     # set the tilt servo's max velocity about pi/2 rad/s and the max acceleration about 1.87 rad/s^2
     robot = InterbotixTurretXS(
-        robot_model="pxxls",
+        robot_model="vxxms",
         pan_profile_type="velocity",
         tilt_profile_type="velocity",
         pan_profile_velocity=131,
